@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd kambaz-next-js && npm run build",
+  "outputDirectory": "kambaz-next-js/.next",
+  "installCommand": "cd kambaz-next-js && npm install"
+}
+
