@@ -16,7 +16,7 @@ export default function Lab1() {
       <h3>Links</h3>
       <ul>
         <li><Link href="/">Link to Kambaz Application</Link></li>
-        <li><a href="https://github.com" id="wd-github">Link to GitHub Repository</a></li>
+        <li><a href="https://github.com/SilasSpencer1/a1" id="wd-github">Link to GitHub Repository</a></li>
       </ul>
       
       <hr />
@@ -266,7 +266,7 @@ export default function Lab1() {
       {/* Anchor Tags */}
       <h4>Anchor tag</h4>
       Please <a href="https://www.lipsum.com" id="wd-lipsum">click here</a> to get dummy text<br/>
-      Please <a href="https://github.com" id="wd-github">click here</a> to go to GitHub
+      Please <a href="https://github.com/SilasSpencer1/a1" id="wd-github">click here</a> to go to GitHub
     </div>
   );
 }
