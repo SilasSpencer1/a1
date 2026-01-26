@@ -38,3 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Project Structure
 
 This is the Kambaz Learning Management System application built with Next.js.
+
