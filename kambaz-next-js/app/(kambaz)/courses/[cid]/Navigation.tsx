@@ -52,6 +52,14 @@ export default function CourseNavigation({ cid }: { cid: string }) {
       </Link>
       <br />
       <Link
+        href={`/courses/${cid}/grades`}
+        id="wd-course-grades-link"
+        className="list-group-item text-danger border-0"
+      >
+        Grades
+      </Link>
+      <br />
+      <Link
         href={`/courses/${cid}/people/Table`}
         id="wd-course-people-link"
         className="list-group-item text-danger border-0"
