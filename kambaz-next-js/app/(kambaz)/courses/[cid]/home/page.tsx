@@ -1,3 +1,4 @@
+"use client";
 import Modules from "../modules/page";
 import CourseStatus from "./Status";
 
