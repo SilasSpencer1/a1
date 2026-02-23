@@ -1,0 +1,182 @@
+[
+  {
+    "_id": "A101",
+    "title": "A1 - ENV + HTML",
+    "course": "RS101",
+    "description": "Setting up the development environment and creating HTML pages for the Kambaz application.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A102",
+    "title": "A2 - CSS + Bootstrap",
+    "course": "RS101",
+    "description": "Styling the Kambaz application using CSS and the Bootstrap framework for responsive design.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  },
+  {
+    "_id": "A103",
+    "title": "A3 - JavaScript + React",
+    "course": "RS101",
+    "description": "Implementing interactive features using JavaScript and React components.",
+    "points": 100,
+    "dueDate": "2024-05-27",
+    "availableFrom": "2024-05-20",
+    "availableUntil": "2024-06-03"
+  },
+  {
+    "_id": "A201",
+    "title": "A1 - Node.js Setup",
+    "course": "RS102",
+    "description": "Setting up a Node.js development environment and creating a basic server.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A202",
+    "title": "A2 - Express Routes",
+    "course": "RS102",
+    "description": "Building RESTful API routes using the Express.js framework.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  },
+  {
+    "_id": "A203",
+    "title": "A3 - Middleware",
+    "course": "RS102",
+    "description": "Implementing middleware for authentication, logging, and error handling.",
+    "points": 100,
+    "dueDate": "2024-05-27",
+    "availableFrom": "2024-05-20",
+    "availableUntil": "2024-06-03"
+  },
+  {
+    "_id": "A301",
+    "title": "A1 - MongoDB Setup",
+    "course": "RS103",
+    "description": "Installing MongoDB and creating your first database with collections.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A302",
+    "title": "A2 - CRUD Operations",
+    "course": "RS103",
+    "description": "Implementing Create, Read, Update, and Delete operations with MongoDB.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  },
+  {
+    "_id": "A303",
+    "title": "A3 - Aggregation Pipeline",
+    "course": "RS103",
+    "description": "Using MongoDB aggregation framework for complex data queries.",
+    "points": 100,
+    "dueDate": "2024-05-27",
+    "availableFrom": "2024-05-20",
+    "availableUntil": "2024-06-03"
+  },
+  {
+    "_id": "A401",
+    "title": "A1 - Next.js Pages",
+    "course": "RS104",
+    "description": "Creating pages and layouts using Next.js file-based routing.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A402",
+    "title": "A2 - SSR and SSG",
+    "course": "RS104",
+    "description": "Implementing server-side rendering and static site generation.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  },
+  {
+    "_id": "A403",
+    "title": "A3 - API Routes",
+    "course": "RS104",
+    "description": "Building API routes and server actions in Next.js.",
+    "points": 100,
+    "dueDate": "2024-05-27",
+    "availableFrom": "2024-05-20",
+    "availableUntil": "2024-06-03"
+  },
+  {
+    "_id": "A501",
+    "title": "A1 - TypeScript Basics",
+    "course": "RS105",
+    "description": "Learning TypeScript fundamentals including types, interfaces, and basic annotations.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A502",
+    "title": "A2 - Generics",
+    "course": "RS105",
+    "description": "Implementing generic types and utility types in TypeScript.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  },
+  {
+    "_id": "A601",
+    "title": "A1 - HTML Document",
+    "course": "RS106",
+    "description": "Creating a well-structured HTML document with semantic elements.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A602",
+    "title": "A2 - CSS Styling",
+    "course": "RS106",
+    "description": "Applying CSS styles including flexbox and grid layouts.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  },
+  {
+    "_id": "A701",
+    "title": "A1 - JS Fundamentals",
+    "course": "RS107",
+    "description": "Practicing JavaScript fundamentals including variables, functions, and data structures.",
+    "points": 100,
+    "dueDate": "2024-05-13",
+    "availableFrom": "2024-05-06",
+    "availableUntil": "2024-05-20"
+  },
+  {
+    "_id": "A702",
+    "title": "A2 - DOM Manipulation",
+    "course": "RS107",
+    "description": "Working with the DOM to create interactive web pages.",
+    "points": 100,
+    "dueDate": "2024-05-20",
+    "availableFrom": "2024-05-13",
+    "availableUntil": "2024-05-27"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "RS101",
+    "name": "CS1234 React JS",
+    "number": "CS1234",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "Full Stack software developer. Learn React JS and build modern web applications with components, state management, and routing."
+  },
+  {
+    "_id": "RS102",
+    "name": "CS2345 Node.js",
+    "number": "CS2345",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 3,
+    "description": "Server-side JavaScript runtime environment. Build scalable backend services using Node.js, Express, and RESTful APIs."
+  },
+  {
+    "_id": "RS103",
+    "name": "CS3456 MongoDB",
+    "number": "CS3456",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 3,
+    "description": "NoSQL Database Management. Learn to design, query, and manage MongoDB databases for modern web applications."
+  },
+  {
+    "_id": "RS104",
+    "name": "CS4567 Next.js",
+    "number": "CS4567",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "React Framework for Production. Learn server-side rendering, static generation, and full-stack development with Next.js."
+  },
+  {
+    "_id": "RS105",
+    "name": "CS5678 TypeScript",
+    "number": "CS5678",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 3,
+    "description": "Typed JavaScript at Scale. Master static typing, interfaces, generics, and advanced TypeScript features for robust applications."
+  },
+  {
+    "_id": "RS106",
+    "name": "CS6789 HTML & CSS",
+    "number": "CS6789",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 3,
+    "description": "Web Development Fundamentals. Learn semantic HTML, CSS layouts, responsive design, and modern styling techniques."
+  },
+  {
+    "_id": "RS107",
+    "name": "CS7890 JavaScript",
+    "number": "CS7890",
+    "startDate": "2024-01-10",
+    "endDate": "2024-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "Programming the Web. Master JavaScript fundamentals including ES6+, DOM manipulation, async programming, and modern patterns."
+  }
+]
