@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"/Users/silas.spencer/cs5500/a1/kambaz-next-js/app/\\(kambaz\\)/\")",
+      "Bash(ls -la \"/Users/silas.spencer/cs5500/a1/kambaz-next-js/app/\\(kambaz\\)/database/\")",
+      "Bash(find \"/Users/silas.spencer/cs5500/a1/kambaz-next-js/app/\\(kambaz\\)/database\" -type f)",
+      "Bash(wc -l /Users/silas.spencer/cs5500/a1/kambaz-next-js/app/\\\\\\(kambaz\\\\\\)/database/modules.json)",
+      "Bash(find /Users/silas.spencer/cs5500/a1/kambaz-next-js/app/\\\\\\(kambaz\\\\\\)/courses/[cid] -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" \\\\\\))",
+      "Bash(head -50 /Users/silas.spencer/cs5500/a1/kambaz-next-js/app/\\\\\\(kambaz\\\\\\)/database/modules.json)",
+      "Bash(brew install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(npm install:*)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Read(//opt/homebrew/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(/opt/homebrew/bin/node --version)",
+      "Bash(/opt/homebrew/bin/npm --version)",
+      "Bash(PATH=\"/opt/homebrew/bin:$PATH\" /opt/homebrew/bin/node /opt/homebrew/bin/npm install redux react-redux @reduxjs/toolkit uuid zustand @types/uuid)",
+      "Bash(PATH=\"/opt/homebrew/bin:$PATH\" npm install)",
+      "Bash(PATH=\"/opt/homebrew/bin:$PATH\" rm -rf /Users/silas.spencer/cs5500/a1/kambaz-next-js/node_modules)",
+      "Bash(PATH=\"/opt/homebrew/bin:$PATH\" rm -f /Users/silas.spencer/cs5500/a1/kambaz-next-js/package-lock.json)",
+      "Bash(PATH=\"/opt/homebrew/bin:/bin:/usr/bin:$PATH\" rm -f /Users/silas.spencer/cs5500/a1/kambaz-next-js/package-lock.json)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/bin:/usr/bin:/usr/sbin:/sbin:$PATH\")"
+    ],
+    "additionalDirectories": [
+      "/Users/silas.spencer/cs5500/a1/kambaz-next-js/app/labs/lab4/url-encoding/path-params/[a]"
+    ]
+  }
+}
