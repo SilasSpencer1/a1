@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsGripVertical } from "react-icons/bs";
 import { FaSearch, FaPlus, FaCheckCircle, FaEllipsisV, FaTrash } from "react-icons/fa";
@@ -8,13 +8,14 @@ import { MdAssignment } from "react-icons/md";
 import { useParams } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment, fetchAssignments } from "./reducer";
 import { Modal, Button } from "react-bootstrap";
 
 export default function Assignments() {
   const { cid } = useParams();
   const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
   const dispatch = useDispatch();
+  useEffect(() => { dispatch(fetchAssignments(cid as string) as any); }, [cid]);
   const courseAssignments = assignments.filter(
     (assignment: any) => assignment.course === cid
   );
@@ -28,7 +29,7 @@ export default function Assignments() {
 
   const handleDelete = () => {
     if (assignmentToDelete) {
-      dispatch(deleteAssignment(assignmentToDelete._id));
+      dispatch(deleteAssignment(assignmentToDelete._id) as any);
     }
     setShowDeleteDialog(false);
     setAssignmentToDelete(null);

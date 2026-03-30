@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Row, Col, Card, CardImg, CardBody, CardTitle, CardText,
@@ -7,7 +7,7 @@ import {
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addNewCourse, deleteCourse, updateCourse,
+  addNewCourse, deleteCourse, updateCourse, fetchAllCourses,
 } from "../courses/reducer";
 import { enroll, unenroll } from "../enrollments/reducer";
 import { RootState } from "../store";
@@ -17,6 +17,7 @@ export default function Dashboard() {
   const { currentUser } = useSelector((state: RootState) => state.accountReducer);
   const { enrollments } = useSelector((state: RootState) => state.enrollmentsReducer);
   const dispatch = useDispatch();
+  useEffect(() => { dispatch(fetchAllCourses() as any); }, []);
 
   const [course, setCourse] = useState<any>({
     _id: "0", name: "New Course", number: "New Number",
@@ -48,12 +49,12 @@ export default function Dashboard() {
         New Course
         <button className="btn btn-primary float-end"
           id="wd-add-new-course-click"
-          onClick={() => dispatch(addNewCourse(course))}>
+          onClick={() => dispatch(addNewCourse(course) as any)}>
           Add
         </button>
         <button className="btn btn-warning float-end me-2"
           id="wd-update-course-click"
-          onClick={() => dispatch(updateCourse(course))}>
+          onClick={() => dispatch(updateCourse(course) as any)}>
           Update
         </button>
         {currentUser && (
@@ -114,7 +115,7 @@ export default function Dashboard() {
                       <>
                         <button onClick={(e) => {
                             e.preventDefault();
-                            dispatch(deleteCourse(c._id));
+                            dispatch(deleteCourse(c._id) as any);
                           }} className="btn btn-danger float-end"
                           id="wd-delete-course-click">
                           Delete

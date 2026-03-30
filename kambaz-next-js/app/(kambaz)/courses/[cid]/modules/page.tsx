@@ -1,12 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem, FormControl } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import { useParams } from "next/navigation";
 import ModulesControls from "./ModulesControls";
 import ModuleControlButtons from "./ModuleControlButtons";
 import LessonControlButtons from "./LessonControlButtons";
-import { addModule, editModule, updateModule, deleteModule } from "./reducer";
+import { addModule, editModule, updateModule, deleteModule, fetchModules } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
 
@@ -15,11 +15,12 @@ export default function Modules() {
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: RootState) => state.modulesReducer);
   const dispatch = useDispatch();
+  useEffect(() => { dispatch(fetchModules(cid as string) as any); }, [cid]);
   return (
     <div>
       <ModulesControls moduleName={moduleName} setModuleName={setModuleName}
         addModule={() => {
-          dispatch(addModule({ name: moduleName, course: cid }));
+          dispatch(addModule({ courseId: cid as string, module: { name: moduleName, course: cid } }) as any);
           setModuleName("");
         }} />
       <br /><br /><br /><br />
@@ -35,17 +36,17 @@ export default function Modules() {
                 {module.editing && (
                   <FormControl className="w-50 d-inline-block"
                     onChange={(e) =>
-                      dispatch(updateModule({ ...module, name: e.target.value }))
+                      dispatch(updateModule({ ...module, name: e.target.value }) as any)
                     }
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        dispatch(updateModule({ ...module, editing: false }));
+                        dispatch(updateModule({ ...module, editing: false }) as any);
                       }
                     }}
                     defaultValue={module.name} />
                 )}
                 <ModuleControlButtons moduleId={module._id}
-                  deleteModule={(moduleId) => dispatch(deleteModule(moduleId))}
+                  deleteModule={(moduleId) => dispatch(deleteModule(moduleId) as any)}
                   editModule={(moduleId) => dispatch(editModule(moduleId))} />
               </div>
               {module.lessons && (

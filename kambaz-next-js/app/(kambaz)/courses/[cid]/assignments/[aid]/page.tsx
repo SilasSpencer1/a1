@@ -6,7 +6,7 @@ import {
 } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../store";
-import { addAssignment, updateAssignment } from "../reducer";
+import { addAssignment, updateAssignment, fetchAssignments } from "../reducer";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
@@ -29,16 +29,20 @@ export default function AssignmentEditor() {
   });
 
   useEffect(() => {
+    dispatch(fetchAssignments(cid as string) as any);
+  }, [cid]);
+
+  useEffect(() => {
     if (existingAssignment) {
       setAssignment(existingAssignment);
     }
-  }, []);
+  }, [existingAssignment]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (isNew) {
-      dispatch(addAssignment(assignment));
+      await dispatch(addAssignment({ courseId: cid as string, assignment }) as any);
     } else {
-      dispatch(updateAssignment(assignment));
+      await dispatch(updateAssignment(assignment) as any);
     }
     router.push(`/courses/${cid}/assignments`);
   };
