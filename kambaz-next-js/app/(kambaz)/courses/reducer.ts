@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as client from "./client";
+import * as accountClient from "../account/client";
 
 export const fetchAllCourses = createAsyncThunk(
   "courses/fetchAllCourses",
@@ -8,10 +9,17 @@ export const fetchAllCourses = createAsyncThunk(
     return courses;
   }
 );
+export const fetchMyCourses = createAsyncThunk(
+  "courses/fetchMyCourses",
+  async () => {
+    const courses = await accountClient.findMyCourses();
+    return courses;
+  }
+);
 export const addNewCourse = createAsyncThunk(
   "courses/addNewCourse",
   async (course: any) => {
-    const newCourse = await client.createCourse(course);
+    const newCourse = await accountClient.createCourse(course);
     return newCourse;
   }
 );
@@ -41,6 +49,9 @@ const coursesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllCourses.fulfilled, (state, { payload }) => {
+        state.courses = payload;
+      })
+      .addCase(fetchMyCourses.fulfilled, (state, { payload }) => {
         state.courses = payload;
       })
       .addCase(addNewCourse.fulfilled, (state, { payload }) => {

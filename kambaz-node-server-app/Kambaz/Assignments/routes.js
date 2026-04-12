@@ -1,17 +1,15 @@
-import Database from "../Database/index.js";
+import * as dao from "./dao.js";
+
 export default function AssignmentRoutes(app) {
-  app.put("/api/assignments/:assignmentId", (req, res) => {
+  app.put("/api/assignments/:assignmentId", async (req, res) => {
     const { assignmentId } = req.params;
-    Database.assignments = Database.assignments.map((a) =>
-      a._id === assignmentId ? { ...a, ...req.body } : a
-    );
-    res.sendStatus(204);
+    const status = await dao.updateAssignment(assignmentId, req.body);
+    res.send(status);
   });
-  app.delete("/api/assignments/:assignmentId", (req, res) => {
+
+  app.delete("/api/assignments/:assignmentId", async (req, res) => {
     const { assignmentId } = req.params;
-    Database.assignments = Database.assignments.filter(
-      (a) => a._id !== assignmentId
-    );
-    res.sendStatus(204);
+    const status = await dao.deleteAssignment(assignmentId);
+    res.send(status);
   });
 }

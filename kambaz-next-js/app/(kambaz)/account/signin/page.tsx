@@ -4,26 +4,28 @@ import { useRouter } from "next/navigation";
 import { setCurrentUser } from "../reducer";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import * as db from "../../database";
-import { FormControl, Button } from "react-bootstrap";
+import { FormControl, Button, Alert } from "react-bootstrap";
+import * as client from "../client";
 
 export default function Signin() {
   const [credentials, setCredentials] = useState<any>({});
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
-  const signin = () => {
-    const user = db.users.find(
-      (u: any) =>
-        u.username === credentials.username &&
-        u.password === credentials.password
-    );
-    if (!user) return;
-    dispatch(setCurrentUser(user));
-    router.push("/dashboard");
+  const signin = async () => {
+    try {
+      const user = await client.signin(credentials);
+      if (!user) return;
+      dispatch(setCurrentUser(user));
+      router.push("/dashboard");
+    } catch (err: any) {
+      setError(err?.response?.data?.message || "Sign in failed");
+    }
   };
   return (
     <div id="wd-signin-screen">
       <h1>Sign in</h1>
+      {error && <Alert variant="danger">{error}</Alert>}
       <FormControl defaultValue={credentials.username}
         onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
         className="mb-2" placeholder="username" id="wd-username" />

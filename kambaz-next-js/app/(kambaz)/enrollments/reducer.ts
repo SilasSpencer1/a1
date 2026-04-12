@@ -1,27 +1,52 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { enrollments } from "../database";
-import { v4 as uuidv4 } from "uuid";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import * as accountClient from "../account/client";
+
+export const enroll = createAsyncThunk(
+  "enrollments/enroll",
+  async ({ userId, courseId }: { userId: string; courseId: string }) => {
+    await accountClient.enrollIntoCourse(userId, courseId);
+    return { userId, courseId };
+  }
+);
+export const unenroll = createAsyncThunk(
+  "enrollments/unenroll",
+  async ({ userId, courseId }: { userId: string; courseId: string }) => {
+    await accountClient.unenrollFromCourse(userId, courseId);
+    return { userId, courseId };
+  }
+);
+
 const initialState = {
-  enrollments: enrollments,
+  enrollments: [] as any[],
 };
+
 const enrollmentsSlice = createSlice({
   name: "enrollments",
   initialState,
   reducers: {
-    enroll: (state, { payload: { userId, courseId } }) => {
-      const newEnrollment = {
-        _id: uuidv4(),
-        user: userId,
-        course: courseId,
-      };
-      state.enrollments = [...state.enrollments, newEnrollment] as any;
-    },
-    unenroll: (state, { payload: { userId, courseId } }) => {
-      state.enrollments = state.enrollments.filter(
-        (e: any) => !(e.user === userId && e.course === courseId)
-      );
+    setEnrollments: (state, { payload }) => {
+      state.enrollments = payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(enroll.fulfilled, (state, { payload }) => {
+        state.enrollments = [
+          ...state.enrollments,
+          {
+            _id: `${payload.userId}-${payload.courseId}`,
+            user: payload.userId,
+            course: payload.courseId,
+          },
+        ];
+      })
+      .addCase(unenroll.fulfilled, (state, { payload }) => {
+        state.enrollments = state.enrollments.filter(
+          (e: any) => !(e.user === payload.userId && e.course === payload.courseId)
+        );
+      });
+  },
 });
-export const { enroll, unenroll } = enrollmentsSlice.actions;
+
+export const { setEnrollments } = enrollmentsSlice.actions;
 export default enrollmentsSlice.reducer;

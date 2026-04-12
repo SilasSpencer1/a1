@@ -17,15 +17,15 @@ export const addModule = createAsyncThunk(
 );
 export const deleteModule = createAsyncThunk(
   "modules/deleteModule",
-  async (moduleId: string) => {
-    await client.deleteModule(moduleId);
+  async ({ courseId, moduleId }: { courseId: string; moduleId: string }) => {
+    await client.deleteModule(courseId, moduleId);
     return moduleId;
   }
 );
 export const updateModule = createAsyncThunk(
   "modules/updateModule",
-  async (module: any) => {
-    await client.updateModule(module);
+  async ({ courseId, module }: { courseId: string; module: any }) => {
+    await client.updateModule(courseId, module);
     return module;
   }
 );

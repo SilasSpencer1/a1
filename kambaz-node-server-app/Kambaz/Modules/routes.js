@@ -1,15 +1,17 @@
-import Database from "../Database/index.js";
+import * as dao from "./dao.js";
+
 export default function ModuleRoutes(app) {
-  app.put("/api/modules/:moduleId", (req, res) => {
+  app.put("/api/modules/:moduleId", async (req, res) => {
     const { moduleId } = req.params;
-    Database.modules = Database.modules.map((m) =>
-      m._id === moduleId ? { ...m, ...req.body } : m
-    );
-    res.sendStatus(204);
+    const { courseId } = req.body;
+    const status = await dao.updateModule(courseId, moduleId, req.body);
+    res.send(status);
   });
-  app.delete("/api/modules/:moduleId", (req, res) => {
+
+  app.delete("/api/modules/:moduleId", async (req, res) => {
     const { moduleId } = req.params;
-    Database.modules = Database.modules.filter((m) => m._id !== moduleId);
-    res.sendStatus(204);
+    const { courseId } = req.query;
+    const status = await dao.deleteModule(courseId, moduleId);
+    res.send(status);
   });
 }

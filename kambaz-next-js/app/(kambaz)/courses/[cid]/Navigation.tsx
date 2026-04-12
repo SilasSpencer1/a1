@@ -17,10 +17,7 @@ export default function CourseNavigation({ cid }: { cid: string }) {
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
       {links.map((link) => {
-        const href =
-          link === "People"
-            ? `/courses/${cid}/people/Table`
-            : `/courses/${cid}/${link.toLowerCase()}`;
+        const href = `/courses/${cid}/${link.toLowerCase()}`;
         return (
           <Link
             key={link}

@@ -25,9 +25,7 @@ export default function Modules() {
         }} />
       <br /><br /><br /><br />
       <ListGroup id="wd-modules" className="rounded-0">
-        {modules
-          .filter((module: any) => module.course === cid)
-          .map((module: any) => (
+        {modules.map((module: any) => (
             <ListGroupItem key={module._id}
               className="wd-module p-0 mb-5 fs-5 border-gray">
               <div className="wd-title p-3 ps-2 bg-secondary">
@@ -36,17 +34,17 @@ export default function Modules() {
                 {module.editing && (
                   <FormControl className="w-50 d-inline-block"
                     onChange={(e) =>
-                      dispatch(updateModule({ ...module, name: e.target.value }) as any)
+                      dispatch(updateModule({ courseId: cid as string, module: { ...module, name: e.target.value } }) as any)
                     }
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        dispatch(updateModule({ ...module, editing: false }) as any);
+                        dispatch(updateModule({ courseId: cid as string, module: { ...module, editing: false } }) as any);
                       }
                     }}
                     defaultValue={module.name} />
                 )}
                 <ModuleControlButtons moduleId={module._id}
-                  deleteModule={(moduleId) => dispatch(deleteModule(moduleId) as any)}
+                  deleteModule={(moduleId) => dispatch(deleteModule({ courseId: cid as string, moduleId }) as any)}
                   editModule={(moduleId) => dispatch(editModule(moduleId))} />
               </div>
               {module.lessons && (
