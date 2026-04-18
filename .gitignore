@@ -5,3 +5,4 @@ node_modules/
 .env.production
 WD NEXT.JS*.md
 WD NEXT.JS*.pdf
+.vercel
