@@ -9,6 +9,7 @@ import UserRoutes from "./Kambaz/Users/routes.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
+import QuizRoutes from "./Kambaz/Quizzes/routes.js";
 import seed from "./Kambaz/Database/seed.js";
 
 const CONNECTION_STRING =
@@ -57,6 +58,7 @@ UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
+QuizRoutes(app);
 
 app.listen(process.env.PORT || 4000, () => {
   console.log("Server listening on port", process.env.PORT || 4000);
