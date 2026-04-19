@@ -57,9 +57,13 @@ export default function QuizRunner({
       return;
     }
     if (onSubmit) {
-      const { score: s } = await onSubmit(answers);
-      setScore(s);
-      setSubmitted(true);
+      try {
+        const { score: s } = await onSubmit(answers);
+        setScore(s);
+        setSubmitted(true);
+      } catch {
+        // error is displayed by caller
+      }
     }
   };
 

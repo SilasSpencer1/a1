@@ -26,11 +26,18 @@ export default function QuizTake() {
 
   if (!quiz) return <div className="p-3">Loading…</div>;
 
+  const [submitError, setSubmitError] = useState("");
   const onSubmit = async (answers: any[]) => {
-    const attempt = await client.submitAttempt(qid as string, answers);
-    const list = await client.findAttempts(qid as string);
-    setAttempts(list);
-    return { score: attempt.score };
+    try {
+      const attempt = await client.submitAttempt(qid as string, answers);
+      const list = await client.findAttempts(qid as string);
+      setAttempts(list);
+      return { score: attempt.score };
+    } catch (err: any) {
+      const msg = err?.response?.data?.message || "Unable to submit quiz";
+      setSubmitError(msg);
+      throw err;
+    }
   };
 
   const lastAttempt = attempts.length ? attempts[attempts.length - 1] : null;
@@ -43,6 +50,7 @@ export default function QuizTake() {
           You have used all your attempts. Showing your last attempt (score: <b>{lastAttempt.score}</b>).
         </div>
       )}
+      {submitError && <div className="alert alert-danger">{submitError}</div>}
       <QuizRunner
         quiz={quiz}
         mode={mode}
