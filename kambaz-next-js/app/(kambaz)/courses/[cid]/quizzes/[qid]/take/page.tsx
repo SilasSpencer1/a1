@@ -9,6 +9,7 @@ export default function QuizTake() {
   const [quiz, setQuiz] = useState<any>(null);
   const [attempts, setAttempts] = useState<any[]>([]);
   const [mode, setMode] = useState<"take" | "review">("take");
+  const [submitError, setSubmitError] = useState("");
 
   const load = async () => {
     const q = await client.findQuizById(qid as string);
@@ -26,7 +27,6 @@ export default function QuizTake() {
 
   if (!quiz) return <div className="p-3">Loading…</div>;
 
-  const [submitError, setSubmitError] = useState("");
   const onSubmit = async (answers: any[]) => {
     try {
       const attempt = await client.submitAttempt(qid as string, answers);
