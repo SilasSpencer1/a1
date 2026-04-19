@@ -36,6 +36,8 @@ export default function Signin() {
         Sign in
       </Button>
       <Link id="wd-signup-link" href="/account/signup">Sign up</Link>
+      <hr />
+      <Link href="/about" className="text-muted small">About this project</Link>
     </div>
   );
 }
